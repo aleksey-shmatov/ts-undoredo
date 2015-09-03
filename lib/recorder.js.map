@@ -1,0 +1,1 @@
+{"version":3,"file":"recorder.js","sourceRoot":"","sources":["recorder.ts"],"names":["Recorder","Recorder.constructor","Recorder.begin","Recorder.end"],"mappings":"AAEA;IAAAA;IASAC,CAACA;IAPOD,wBAAKA,GAAZA,UAAaA,MAAUA;IAEvBE,CAACA;IAEMF,sBAAGA,GAAVA;QACCG,MAAMA,CAACA,IAAIA,CAACA;IACbA,CAACA;IACFH,eAACA;AAADA,CAACA,AATD,IASC;AATY,gBAAQ,WASpB,CAAA"}

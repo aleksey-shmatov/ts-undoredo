@@ -1,0 +1,37 @@
+{
+  "name": "ts-undoredo",
+  "version": "0.0.1",
+  "description": "Automatic generation of undo-redo commands by watching observable objects",
+  "main": "index.ts",
+  "private": true,
+  "scripts": {
+    "postinstall": "tsd install",
+    "compile": "tsc",
+    "prepublish": "tsc",
+    "pretest": "tsc",
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksey-shmatov/ts-undoredo.git"
+  },
+  "keywords": [
+    "undoredo",
+    "command"
+  ],
+  "author": "Aleksey Shmatov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleksey-shmatov/ts-undoredo/issues"
+  },
+  "homepage": "https://github.com/aleksey-shmatov/ts-undoredo#readme",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.3.0"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "ts-events": "^2.0.0",
+    "ts-observable": "aleksey-shmatov/ts-observable"
+  }
+}

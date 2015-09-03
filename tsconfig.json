@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "isolatedModules": false,
+        "experimentalDecorators": true,
+        "sourceMap": true
+    },
+    "files": [
+        "./index.ts"
+    ]
+}
