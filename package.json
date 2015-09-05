@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "postinstall": "tsd install",
-    "compile": "tsc",
+    "compile": "tsc --declaration; node makebundle.js;",
     "prepublish": "tsc",
     "pretest": "tsc",
     "test": "mocha test/**/*.js"
@@ -27,10 +27,10 @@
   "homepage": "https://github.com/aleksey-shmatov/ts-undoredo#readme",
   "devDependencies": {
     "chai": "^3.2.0",
+    "dts-bundle": "^0.3.0",
     "mocha": "^2.3.0"
   },
   "dependencies": {
-    "lodash": "^3.10.1",
     "ts-events": "^2.0.0",
     "ts-observable": "aleksey-shmatov/ts-observable"
   }
