@@ -20,9 +20,9 @@ describe('Recorder', function () {
         chai_1.assert(compositeCommand.commands.length == 4, "number of commands should be correct");
         var thirdCommand = compositeCommand.commands[2];
         chai_1.assert(thirdCommand.newValue == 1 && thirdCommand.oldValue == 0, "verify that command has proper values");
-        chai_1.assert(polyline.propertyChanged.listenerCount() == 0, "listeners should be properly removed");
-        chai_1.assert(style.propertyChanged.listenerCount() == 0, "listeners should be properly removed");
-        chai_1.assert(offsetPoint.propertyChanged.listenerCount() == 0, "listeners should be properly removed");
+        chai_1.assert(polyline.propertyChanged.listeners('propertyChange').length == 0, "listeners should be properly removed");
+        chai_1.assert(style.propertyChanged.listeners('propertyChange').length == 0, "listeners should be properly removed");
+        chai_1.assert(offsetPoint.propertyChanged.listeners('propertyChange').length == 0, "listeners should be properly removed");
     });
     it("Should correctly listen to property changes in collections", function () {
         var polyline = new model_1.Polyline();
@@ -44,11 +44,11 @@ describe('Recorder', function () {
         var thirdCommand = compositeCommand.commands[2];
         chai_1.assert(thirdCommand.index == 0 && thirdCommand.target == polyline.points &&
             thirdCommand.items[0] == oldPoint, "verify that command has proper values");
-        chai_1.assert(polyline.propertyChanged.listenerCount() == 0, "listeners should be properly removed");
-        chai_1.assert(style.propertyChanged.listenerCount() == 0, "listeners should be properly removed");
-        chai_1.assert(oldPoint.propertyChanged.listenerCount() == 0, "listeners should be properly removed");
-        chai_1.assert(newPoint.propertyChanged.listenerCount() == 0, "listeners should be properly removed");
-        chai_1.assert(polyline.points.collectionChanged.listenerCount() == 0, "listeners should be properly removed");
+        chai_1.assert(polyline.propertyChanged.listeners('propertyChange').length == 0, "listeners should be properly removed");
+        chai_1.assert(style.propertyChanged.listeners('propertyChange').length == 0, "listeners should be properly removed");
+        chai_1.assert(oldPoint.propertyChanged.listeners('propertyChange').length == 0, "listeners should be properly removed");
+        chai_1.assert(newPoint.propertyChanged.listeners('propertyChange').length == 0, "listeners should be properly removed");
+        chai_1.assert(polyline.points.collectionChanged.listeners('collectionChange').length == 0, "listeners should be properly removed");
     });
 });
 //# sourceMappingURL=recorder.spec.js.map

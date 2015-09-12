@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/ts-events/ts-events.d.ts" />
 /// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
 import * as commands from './commands';
 import {INotifyPropertyChanged, PropertyChangeEvent, PropertyChangeInfo, 
@@ -40,7 +39,7 @@ export class Recorder{
 	}
 	
 	private listen(target:INotifyPropertyChanged):void{
-		target.propertyChanged.attach(this, this.onPropertyChange);
+		target.propertyChanged.listen(this.onPropertyChange, this);
 		for(let property in target){
 			let value:any = target[property];
 			this.tryListen(value);
@@ -48,7 +47,7 @@ export class Recorder{
 	}
 	
 	private listenAll(target:ObservableCollection<any>):void{
-		target.collectionChanged.attach(this, this.onCollectionChanged);
+		target.collectionChanged.listen(this.onCollectionChanged, this);
 		for(let i:number = 0; i < target.numElements;i++){
 			var item:any = target.getItemAt(i);
 			this.tryListen(item);
@@ -65,7 +64,7 @@ export class Recorder{
 	}
 	
 	private unlisten(target:INotifyPropertyChanged):void{
-		target.propertyChanged.detach(this, this.onPropertyChange);
+		target.propertyChanged.unlisten(this.onPropertyChange);
 		for(let property in target){
 			let value:any = target[property];
 			this.tryUnlisten(value);
@@ -73,7 +72,7 @@ export class Recorder{
 	}
 	
 	private unlistentAll(target:ObservableCollection<any>):void{
-		target.collectionChanged.detach(this, this.onCollectionChanged);
+		target.collectionChanged.unlisten(this.onCollectionChanged);
 		for(let i:number = 0; i < target.numElements;i++){
 			var item:any = target.getItemAt(i);
 			this.tryUnlisten(item);

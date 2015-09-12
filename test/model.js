@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -8,11 +13,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 /// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
 var ts_observable_1 = require('ts-observable');
-var Point = (function () {
+var Point = (function (_super) {
+    __extends(Point, _super);
     function Point(x, y) {
         if (x === void 0) { x = 0; }
         if (y === void 0) { y = 0; }
-        this.propertyChanged = new ts_observable_1.PropertyChangeEvent();
+        _super.call(this);
         this.x = x;
         this.y = y;
     }
@@ -23,11 +29,12 @@ var Point = (function () {
         ts_observable_1.observable
     ], Point.prototype, "y");
     return Point;
-})();
+})(ts_observable_1.ObservableObject);
 exports.Point = Point;
-var Style = (function () {
+var Style = (function (_super) {
+    __extends(Style, _super);
     function Style() {
-        this.propertyChanged = new ts_observable_1.PropertyChangeEvent();
+        _super.call(this);
         this.color = 0;
         this.alpha = 1.0;
     }
@@ -44,11 +51,12 @@ var Style = (function () {
         ts_observable_1.observable
     ], Style.prototype, "offset");
     return Style;
-})();
+})(ts_observable_1.ObservableObject);
 exports.Style = Style;
-var Polyline = (function () {
+var Polyline = (function (_super) {
+    __extends(Polyline, _super);
     function Polyline() {
-        this.propertyChanged = new ts_observable_1.PropertyChangeEvent();
+        _super.call(this);
         this.points = new ts_observable_1.ObservableCollection();
     }
     __decorate([
@@ -58,6 +66,6 @@ var Polyline = (function () {
         ts_observable_1.observable
     ], Polyline.prototype, "points");
     return Polyline;
-})();
+})(ts_observable_1.ObservableObject);
 exports.Polyline = Polyline;
 //# sourceMappingURL=model.js.map

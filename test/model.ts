@@ -1,8 +1,7 @@
 /// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
-import {observable, INotifyPropertyChanged, PropertyChangeEvent, ObservableCollection} from 'ts-observable';
+import {observable, ObservableObject, PropertyChangeEvent, ObservableCollection} from 'ts-observable';
 
-export class Point implements INotifyPropertyChanged{
-	public propertyChanged:PropertyChangeEvent = new PropertyChangeEvent();
+export class Point extends ObservableObject{
 		
 	@observable
 	public x:number;
@@ -11,14 +10,13 @@ export class Point implements INotifyPropertyChanged{
 	public y:number;
 	
 	constructor(x: number = 0, y: number = 0){
+		super();
 		this.x = x;
 		this.y = y;
 	}
 }
 
-export class Style implements INotifyPropertyChanged{
-	public propertyChanged:PropertyChangeEvent = new PropertyChangeEvent();	
-		
+export class Style extends ObservableObject{
 	@observable
 	public color:number;
 	
@@ -32,18 +30,20 @@ export class Style implements INotifyPropertyChanged{
 	public offset:Point;
 	
 	constructor(){
+		super();
 		this.color = 0;
 		this.alpha = 1.0;
 	}
 }
 
-export class Polyline implements INotifyPropertyChanged{
-	public propertyChanged:PropertyChangeEvent = new PropertyChangeEvent();
-	
+export class Polyline extends ObservableObject{
 	@observable
 	public style:Style;
 	
 	@observable
 	public points:ObservableCollection<Point> = new ObservableCollection<Point>();
 	
+	constructor(){
+		super();
+	}
 }

@@ -31,7 +31,7 @@
     "mocha": "^2.3.0"
   },
   "dependencies": {
-    "ts-events": "^2.0.0",
+    "eventemitter3": "^1.1.1",
     "ts-observable": "aleksey-shmatov/ts-observable"
   }
 }
