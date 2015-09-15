@@ -3,10 +3,7 @@
   "version": "0.0.1",
   "description": "Automatic generation of undo-redo commands by watching observable objects",
   "main": "index.ts",
-  "typings": "./ts-observable.d.ts",
-  "typescript": {
-    "definition": "./ts-observable.d.ts"
-  },
+  "typings": "./ts-undoredo.d.ts",
   "private": true,
   "scripts": {
     "postinstall": "tsd install",
