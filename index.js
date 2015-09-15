@@ -1,3 +1,4 @@
+/// <reference path="./typings/tsd.d.ts"/>
 var commands_1 = require('./lib/commands');
 exports.PropertyChangeCommand = commands_1.PropertyChangeCommand;
 exports.CompositeCommand = commands_1.CompositeCommand;

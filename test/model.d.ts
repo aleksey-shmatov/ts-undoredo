@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
 import { ObservableObject, ObservableCollection } from 'ts-observable';
 export declare class Point extends ObservableObject {
     x: number;

@@ -2,7 +2,7 @@
   "name": "ts-undoredo",
   "version": "0.0.1",
   "description": "Automatic generation of undo-redo commands by watching observable objects",
-  "main": "index.ts",
+  "main": "./index.js",
   "typings": "./ts-undoredo.d.ts",
   "private": true,
   "scripts": {
