@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
 import {ObservableCollection} from 'ts-observable';
 
 export interface IUndoRedoCommand{

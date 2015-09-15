@@ -11,7 +11,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
-/// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
 var ts_observable_1 = require('ts-observable');
 var Point = (function (_super) {
     __extends(Point, _super);

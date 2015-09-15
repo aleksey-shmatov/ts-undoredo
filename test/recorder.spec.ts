@@ -1,4 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" /> 
 import {Recorder} from '../lib/recorder';
 import {IUndoRedoCommand, CompositeCommand, PropertyChangeCommand, RemoveCommand} from '../lib/commands';
 import {Point, Style, Polyline} from './model';

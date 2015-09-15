@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
 import {observable, ObservableObject, PropertyChangeEvent, ObservableCollection} from 'ts-observable';
 
 export class Point extends ObservableObject{

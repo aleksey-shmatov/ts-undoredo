@@ -1,4 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" /> 
 var recorder_1 = require('../lib/recorder');
 var model_1 = require('./model');
 var chai_1 = require('chai');

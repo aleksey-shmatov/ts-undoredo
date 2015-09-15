@@ -1,4 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" /> 
 import {UndoRedo} from '../lib/undoredo';
 import {Point, Style, Polyline} from './model';
 import { assert } from 'chai';

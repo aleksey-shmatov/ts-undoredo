@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/ts-observable/ts-observable.d.ts" />
 import * as commands from './commands';
 import {INotifyPropertyChanged, PropertyChangeEvent, PropertyChangeInfo, 
 	ObservableCollection, CollectionChangeInfo, CollectionChangeAction, INotifyCollectionChanged} from 'ts-observable';

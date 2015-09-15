@@ -1,4 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" /> 
 var undoredo_1 = require('../lib/undoredo');
 var model_1 = require('./model');
 var chai_1 = require('chai');
