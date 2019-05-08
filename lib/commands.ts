@@ -4,7 +4,7 @@ export interface IUndoRedoCommand{
 	getTimestamp():number;
 	getDuration():number;
 	label:string;
-    undo():void;
+        undo():void;
 	redo():void;
 }
 
