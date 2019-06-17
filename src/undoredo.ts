@@ -1,54 +1,63 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const recorder_1 = require("./recorder");
-class UndoRedo {
-    constructor() {
-        this._stack = [];
-        this._stackIndex = -1;
-        this._recorder = new recorder_1.Recorder();
+import * as commands from './commands';
+import { Recorder } from './recorder';
+import { NotifyPropertyChanged } from 'ts-observable';
+
+export class UndoRedo {
+    private _stack: commands.UndoRedoCommand[] = [];
+    private _stackIndex: number = -1;
+
+    public canUndo(): boolean {
+        return this._stackIndex > 0
     }
-    canUndo() {
-        return this._stackIndex > 0;
-    }
-    canRedo() {
+
+    public canRedo(): boolean {
         return (this._stackIndex < this._stack.length) && this._stack.length > 0;
     }
-    clear() {
+
+    public clear(): void {
         this._stack = [];
         this._stackIndex = -1;
     }
-    add(cmd) {
+
+    public add(cmd: commands.UndoRedoCommand): void {
         if (this.canRedo()) {
             this._stack.splice(this._stackIndex, this._stack.length);
         }
         this._stack.push(cmd);
         this._stackIndex = this._stack.length;
     }
-    undo() {
+
+    public undo(): void {
         if (this.canUndo()) {
             this._stackIndex--;
             this._stack[this._stackIndex].undo();
         }
     }
-    redo() {
+
+    public redo(): void {
         if (this.canRedo()) {
             this._stack[this._stackIndex].redo();
             this._stackIndex++;
         }
     }
-    change(target, changeFunction) {
+
+    private _recorder: Recorder = new Recorder();
+
+    public change(target: NotifyPropertyChanged, changeFunction: (target: NotifyPropertyChanged) => string): void {
         this.beginChange(target);
         let descrition = changeFunction(target);
         this.endChange(descrition);
     }
-    beginChange(target) {
+
+    public beginChange(target: NotifyPropertyChanged): void {
         this._recorder.begin(target);
     }
-    endChange(description) {
+
+    public endChange(description: string): void {
         let result = this._recorder.end(description);
         if (result) {
             this.add(result);
         }
     }
+
 }
-exports.UndoRedo = UndoRedo;

@@ -1,12 +1,12 @@
 import { ObservableCollection } from 'ts-observable';
-export interface IUndoRedoCommand {
+export interface UndoRedoCommand {
     getTimestamp(): number;
     getDuration(): number;
     label: string;
     undo(): void;
     redo(): void;
 }
-export declare class CommandBase implements IUndoRedoCommand {
+export declare class CommandBase implements UndoRedoCommand {
     private _timestamp;
     private _label;
     constructor();
@@ -22,51 +22,51 @@ export declare class PropertyChangeCommand extends CommandBase {
     private _newValue;
     private _target;
     constructor(target: any, propertyName: string, newValue: any, oldValue: any);
-    oldValue: any;
-    newValue: any;
-    target: any;
-    propertyName: string;
+    readonly oldValue: any;
+    readonly newValue: any;
+    readonly target: any;
+    readonly propertyName: string;
     undo(): void;
     redo(): void;
 }
 export declare class CompositeCommand extends CommandBase {
     private _commands;
-    commands: Array<IUndoRedoCommand>;
-    constructor(commands: Array<IUndoRedoCommand>);
+    readonly commands: UndoRedoCommand[];
+    constructor(commands: UndoRedoCommand[]);
     getDuration(): number;
     undo(): void;
     redo(): void;
 }
 export declare class AddCommand extends CommandBase {
     private _items;
-    items: Array<any>;
+    readonly items: any[];
     private _index;
-    index: number;
+    readonly index: number;
     private _target;
-    target: ObservableCollection<any>;
-    constructor(target: ObservableCollection<any>, index: number, items: Array<any>);
+    readonly target: ObservableCollection<any>;
+    constructor(target: ObservableCollection<any>, index: number, items: any[]);
     undo(): void;
     redo(): void;
 }
 export declare class RemoveCommand extends CommandBase {
     private _items;
-    items: Array<any>;
+    readonly items: any[];
     private _index;
-    index: number;
+    readonly index: number;
     private _target;
-    target: ObservableCollection<any>;
-    constructor(target: ObservableCollection<any>, index: number, items: Array<any>);
+    readonly target: ObservableCollection<any>;
+    constructor(target: ObservableCollection<any>, index: number, items: any[]);
     undo(): void;
     redo(): void;
 }
 export declare class ReplaceCommand extends CommandBase {
     private _items;
-    items: Array<any>;
+    readonly items: any[];
     private _index;
-    index: number;
+    readonly index: number;
     private _target;
-    target: ObservableCollection<any>;
-    constructor(target: ObservableCollection<any>, index: number, items: Array<any>);
+    readonly target: ObservableCollection<any>;
+    constructor(target: ObservableCollection<any>, index: number, items: any[]);
     undo(): void;
     redo(): void;
 }

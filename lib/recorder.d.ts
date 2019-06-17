@@ -1,19 +1,19 @@
 import * as commands from './commands';
-import { INotifyPropertyChanged } from 'ts-observable';
+import { NotifyPropertyChanged } from 'ts-observable';
 export declare class Recorder {
     private _commands;
-    private _root;
+    private _root?;
     constructor();
-    begin(target: INotifyPropertyChanged): void;
-    private isObservableCollection(value);
-    private isObservable(value);
-    private tryListen(value);
-    private listen(target);
-    private listenAll(target);
-    private tryUnlisten(value);
-    private unlisten(target);
-    private unlistentAll(target);
-    private onPropertyChange(info);
-    private onCollectionChanged(info);
-    end(description?: string): commands.IUndoRedoCommand;
+    begin(target: NotifyPropertyChanged): void;
+    private isObservableCollection;
+    private isObservable;
+    private tryListen;
+    private listen;
+    private listenAll;
+    private tryUnlisten;
+    private unlisten;
+    private unlistentAll;
+    private onPropertyChange;
+    private onCollectionChanged;
+    end(description?: string): commands.UndoRedoCommand | null;
 }

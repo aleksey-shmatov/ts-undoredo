@@ -1,16 +1,15 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "isolatedModules": false,
-        "experimentalDecorators": true,
-        "sourceMap": true
+      "target": "es6",
+      "lib": ["es2018", "dom"],
+      "module": "commonjs",
+      "outDir": "./lib",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "strict": true,
+      "declaration": true,
+      "esModuleInterop": true
     },
-    "files": [
-        "./typings/tsd.d.ts",
-        "./index.ts",
-        "./test/model.ts",
-        "./test/recorder.spec.ts",
-        "./test/undoredo.spec.ts"
-    ]
+    "include": ["./src"],
+    "exclude": ["node_modules", "__tests__/*", "lib"]
 }
